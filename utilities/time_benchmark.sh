@@ -24,7 +24,7 @@ compute_mean_exec_time()
 {
     file="$1";
     benchcomputed="$2";
-    cat "$file" | grep "[0-9]\+" | sort -n | head -n 4 | tail -n 3 > avg.out;
+    cat "$file" | grep -E "^[0-9]+\.[0-9]+$" | sort -n | head -n 4 | tail -n 3 > avg.out;
     expr="(0";
     while read n; do
 	expr="$expr+$n";
